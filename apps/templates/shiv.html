@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+<html>
+<head>
+        {% block title %}
+    <title>Static files</title>
+    <meta charset="GB18030" http-equiv="Accept-Charset">
+    {% load static %}
+    {% endblock %}
+</head>
+<body>
+        {% block content %}
+</br>
+</br>
+        <strong>Total users registered:</strong>{{ count }}
+</br>
+
+<h1 style="color:maroon;">Hi! I am using Static files in background :</h1>
+
+<img src="{% static '/b1.jpg' %}" alt="My image"  />
+{% endblock %}
+</body>
+</html>

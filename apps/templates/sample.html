@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validation of html</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<a href="js-nwp.html"> back to homepage</a>
+
+
+    <h1>Validation can be done by JavaScript:</h1>
+    <h2 style="color: orange;">If you are submit a Form without any value then it function will alert a message and prevent Form being submitted</h2>
+    <script type="text/javascript">
+        function validate(){
+            var x=document.getElementById("user").value;
+            var y=document.getElementById("passs").value;
+            if (x==""){
+                document.getElementById("username").innerHTML="**Please enter your name:";
+                return false;
+
+            }   
+            if  (y=="" || y.length<6){
+                document.getElementById("password").innerHTML="**Please enter your password and length of password must be greater than 6:";
+                return false;
+                
+            }
+
+            else{
+                return true;
+            }
+        
+        }
+    </script>
+    <form name="fname" onsubmit="return validate()">
+        UserName : <input type="text" name="iname" id="user"><span id="username" style="color: red;"></span ><br></br>
+        Password : <input type="password" name="pname" id="passs"><span id="password" style="color: red;"></span></br>
+                   <input type="submit" name="sname" style="margin: 22px 1px;background-color: white;cursor: pointer;" value="Submit">
+    </form>
+
+</body>
+</html>

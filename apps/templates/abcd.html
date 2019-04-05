@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    {% block title%}
+    <title>Homepage</title>
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <h1>Homepage</h1>
+    <p>Welcome to My Site,  {% if user.is_authenticated %} {{ user.username }}{% else %}visitor{% endif %}</p>
+
+</br>
+<p>You can upload any file : <a href="{% url 'upload' %}">Upload Here!</a></p>
+<p>You can upload any book : <a href="{% url 'upload_book' %}">Upload Here!</a></p>
+
+<form method="get">
+    {% csrf_token %}
+    <p>
+    <input type="text" name="query" />
+    <input type="submit" value="search"/>
+    </p>
+</form>
+
+</br>
+{% for aaa in name11 %}
+<p> <b>First_Name : </b> {{aaa.first_name}}</p>
+<p> <b>Last_Name : </b> {{aaa.last_name}}</p>
+<p> <b>Contact : </b> {{aaa.contact}}</p>
+<p> <b>Email : </b> {{aaa.email}}</p>
+<p> <b>Password : </b> {{aaa.password}}</p>
+</br>
+
+
+{% endfor %}
+{% endblock %}
+</body>
+</html>

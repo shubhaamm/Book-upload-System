@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+<html>
+    <head>
+           
+            {% block title %}
+            
+        <title>Books</title>
+          {% endblock %}
+
+    </head>
+    <body>
+            {% block content %}
+            <div class="row justify-content-center">
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+            <h2>Books</h2>
+            <p><a href="{% url 'upload_book' %}" class="btn btn-primary">Upload Book</a></p>
+            <table class="table mb-0">
+                <thead>
+                    <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Download</th>
+                </tr>
+                </thead>
+                {% for book in books %}
+                 <tr>
+                     <td>{{ book.title }}</td>
+                     <td>{{ book.author }}</td>
+                     <td>
+                         <a href="{{ book.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">Download PDF</a>
+                        </td>
+
+                 </tr>
+                 {% endfor %}
+            </table>
+            
+            </div>
+            </div>
+            </div>
+            </div>
+            
+            {% endblock %}
+            
+
+    </body>
+</html>
+
+
